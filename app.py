@@ -1,5 +1,6 @@
 import os
 
+import bottle
 from bottle import route, run, template
 
 
@@ -12,4 +13,7 @@ def index():
 def hello(name):
     return template('<b>Hello {{name}}</b>!', name=name)
 
-run(host='localhost', port=os.environ.get('PORT') or 8080)
+if __name__ == '__main__':
+    run(host='localhost', port=os.environ.get('PORT') or 8080)
+
+app = bottle.default_app()
