@@ -2,6 +2,6 @@
   "runtime_language": "python-2.7",
   "runtime_version": "1.0",
   "config": {
-    "wsgi_func": "app:app"
+    "wsgi_func": "app:application"
   }
 }

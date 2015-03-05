@@ -1,19 +1,11 @@
-import os
+def application(environ, start_response):
+    status = '200 OK'
+    output = 'Hello World!'
 
-import bottle
-from bottle import route, run, template
+    response_headers = [
+        ('Content-type', 'text/plain'),
+        ('Content-Length', str(len(output)))
+    ]
+    start_response(status, response_headers)
 
-
-@route('/')
-def index():
-    return 'hello'
-
-
-@route('/hello/<name>')
-def hello(name):
-    return template('<b>Hello {{name}}</b>!', name=name)
-
-if __name__ == '__main__':
-    run(host='localhost', port=os.environ.get('PORT') or 8080)
-
-app = bottle.default_app()
+    return [output]
