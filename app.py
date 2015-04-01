@@ -1,3 +1,8 @@
+# coding: utf-8
+
+import sys
+
+
 def application(environ, start_response):
     status = '200 OK'
     output = 'Hello World!'
@@ -10,4 +15,4 @@ def application(environ, start_response):
     ]
     start_response(status, response_headers)
 
-    return [output]
+    return [output, str(sys.stdout)]
